@@ -1,0 +1,252 @@
+@import "init.scss";
+body {
+  width: 1255px;
+  margin: auto;
+  border-left: solid 3px #043269;
+  border-right: solid 3px #043269;
+  height:100%;
+  z-index: 1;
+  header {
+    z-index: 100;
+    width: 100%;
+    height: 130px;
+    background: #043269;
+    //overflow: hidden;
+    position: relative;
+    .header-main {
+      height: 119px;
+      width: 598px;
+      margin-left: 50px;
+      float: left;
+
+    }
+    .header-right {
+      float: left;
+      height: 39px;
+      width: 309px;
+      margin-left: 100px;
+      margin-top: 30px;
+    }
+    .operation {
+      width: 500px;
+      height: 30px;
+      float: right;
+      margin-right: 10px;
+      ul {
+        li {
+          float: right;
+          color: white;
+          margin-left: 30px;
+          margin-top: 30px;
+          border-right: solid cornflowerblue 1px;
+          .search{
+            display: none;
+            .btn{
+              margin-top: -55px;
+              margin-left: 165px;
+              background: none;
+              border:none;
+            }
+          }
+          div{
+            position: absolute;
+            right: 250px;
+          }
+        a{
+          color: white;
+        }
+        }
+      }
+    }
+  }
+  .nav1 {
+    height: 50px;
+    width: 100%;
+    background: #043269;
+    .inner_nav {
+      width: 1200px;
+      height: 100%;
+      background: #ebc013;
+      margin: auto;
+      ul {
+        overflow: hidden;
+        li {
+          float: left;
+          color: white;
+          margin-top: 15px;
+          font-weight: bold;
+          text-align: center;
+          width: 150px;
+          height: 100%;
+          border-right: solid 3px #fce48a;
+          margin-left: 10px;
+          a{
+            color: white;
+          }
+        }
+        li:hover{
+          border-bottom: solid 3px #043269;
+        }
+      }
+    }
+
+  }
+
+  .main {
+    overflow: hidden;
+    .right-main {
+      width: 835px;
+      height: 570px;
+      border: solid gray 1px;
+      margin: 10px;
+      float: left;
+      position: relative;
+      .main-title {
+        height: 50px;
+        width: 100%;
+        border-bottom: solid 2px #dddddf;
+        span {
+          font-size: 18px;
+          font-weight: bold;
+          line-height: 50px;
+          margin-left: 20px;
+          color: #043269;
+          border-bottom: solid 3px #6495ed;
+        }
+      }
+      .main-content {
+        .tav-image {
+          margin: auto;
+          img {
+            padding: 50px;
+            margin-left: 80px;
+          }
+        }
+        .introduce {
+          position: absolute;
+          width: 600px;
+          height: 300px;
+          top: 380px;
+          left: 10px;
+          right: 10px;
+          margin: auto;
+        }
+      }
+
+    }
+    .left-main {
+      width: 390px;
+      height: 570px;
+      margin-top: 10px;
+      float: left;
+      .main-title {
+        border-bottom: solid 2px #cecdd3;
+        height: 39px;
+        margin-top: 10px;
+        .more {
+          float: right;
+        }
+        .information {
+          font-weight: bold;
+          color: #0576b8;
+          border-left: solid 3px #0576b8;
+          margin-left: 5px;
+        }
+      }
+      .main-content {
+        li {
+          margin-left: 25px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 13px;
+        }
+      }
+    }
+    .b-group {
+      width: 1200px;
+      margin: auto;
+      overflow: hidden;
+
+      ol{
+          li{
+            margin: 20px;
+          }
+        }
+      .main-title1 {
+        border-bottom: solid 2px #cecdd3;
+      }
+      .more1 {
+        float: right;
+      }
+      .information1 {
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .friend-link {
+        float: left;
+        width: 380px;
+        height: 300px;
+        margin-right: 20px;
+        border-bottom: solid 3px #043269;
+      }
+      .study-video {
+        float: left;
+        width: 380px;
+        height: 300px;
+        margin-right: 20px;
+        border-bottom: solid 3px #043269;
+      }
+      .study-resource {
+        float: left;
+        width: 380px;
+        height: 300px;
+        border-bottom: solid 3px #043269;
+      }
+    }
+
+  }
+  footer{
+    div{
+      height: 50px;
+      margin-top: 30px;
+      border-top: solid 3px gray;
+      text-align: center;
+      line-height: 50px;
+      font-weight: bold;
+      background: #555367;
+    }
+  }
+}
+
+.user-more-box{
+    background: #fff;
+    width: 140px;
+    //height: 90px;
+    position: absolute;
+    box-shadow: 0 3px 4px #ccc;
+    border-radius: 5px;
+    top: 140px;
+    left:70% ;
+    //margin-left: -40px;
+    font-size: 14px;
+    z-index: 2;
+    display: none;
+
+    .triangle{
+        border: solid transparent;//三角形定义transparent
+        border-width: 10px;
+        border-bottom-color: #fff;
+        display: block;
+        width: 0;
+        height: 0;
+        margin-top: -20px;
+        margin-left: 60px;
+    }
+    a{
+        text-align: center;
+        height: 44px;
+        color: #6d85ac!important;
+        display: block;
+        line-height: 44px;
+    }
+}

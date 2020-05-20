@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static "css/course_introduce.min.css" %}">
+{% endblock %}
+
+{% block title %}
+    课程介绍
+{% endblock %}
+
+{% block content %}
+    <div class="course-main">
+    <div class="course-left">
+        <div class="course-title">
+        <span>
+            {% block side-title %}
+                课程介绍
+            {% endblock %}
+        </span>
+
+        </div>
+        <div>
+        </div>
+    </div>
+    <div class="course-right">
+        <div class="course-title">
+            <div>
+                <span><a href="{%url 'index'%}">首页</a></span>|
+            <span>
+                {% block small-title %}
+                    课程介绍
+                {% endblock %}
+            </span>
+            </div>
+        </div>
+        {% block inner-content %}
+        <div class="course-image">
+            <img width="600" height="218" src="http://fdjpkc.fudan.edu.cn/_upload/article/images/c2/35/f65859dc47af9a55a41603ed34ed/f41d5985-fafe-4070-8a8b-a12d7734175a.png" alt="">
+        </div>
+        <div class="course-introduce">
+            <p>
+             《通信原理》是通信工程专业的标志性课程，主要面向通信工程及相关专业如电子类专业和计算机通信类专业本科生，讲授信息传输的基本概念、基础理论和典型技术。本课程的内容包括通信系统的组成与基本工作原理，信息论基础与概率数理统计基础，信道模型与特性，模拟调制与解调理论，模拟信号数字化理论，数字基带传输理论，数字频带传输理论，最佳接收机设计，先进数字通信技术等。基于学生在信号与系统课程中掌握的基础知识，通过教学使学生系统深入地掌握通信系统的基本概念，特别是数字和模拟系统的基本调制与解调的原理与方法。同时，基于学生在概率论课程中掌握的基础知识，通过教学使学生系统深入地掌握随机信号的基本分析方法，能够应用这一基本方法分析不同通信系统的抗噪声性能，从而比较不同通信系统在传输可靠性方面的区别。
+            </p>
+            <p>课程还力求学生适当掌握现代通信系统的一些新的技术与概念。使学生系统地了解和掌握现代通信的相关理论、实现技术和设计思想。考虑学生未来工作或科研的需求，本课程还设置一些课程实验内容，使学生能够接触实际通信系统（或其部分模块）的设计和实现，理论联系实际，既能加深相关理论知识的理解，又能通过这些实验具备一定的实践能力。学生通过课程实验内容的学习和实践，既培养了在实际通信系统设计和实现方面的软硬件开发能力，又能够理论联系实际，具备一定的科研和动手能力。</p>
+        </div>
+        {% endblock %}
+    </div>
+
+    </div>
+{% endblock %}

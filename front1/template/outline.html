@@ -1,0 +1,40 @@
+{% extends "course_introduce.html" %}
+
+{% block title %}
+    教学大纲
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static "css/course_introduce.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/outline.min.css" %}">
+{% endblock %}
+
+{% block side-title %}
+    教学方法
+{% endblock %}
+
+{% block small-title %}
+    教学方法
+{% endblock %}
+
+{% block inner-content %}
+    <div class="method1">
+    <div class=>
+        <span>一授课方式</span>
+        <p>该课程以课堂教学为主，课后作业除了传统的公式推导与计算以外，还包含一定量的基于MATLAB的计算机模拟与仿真题目。此外，还设置两项综合性课程设计，让学生通过组内协作的方式共同完成给定任务，掌握相关知识点，同时提升学生解决实际问题的能力</p>
+    </div>
+    <div class="method2">
+        <span>二、课堂实践</span>
+        <p>本课程安排两次（共四节课）MATLAB Simulink的课堂实践环节：</p>
+        <p>(1)MATLAB Simulink有关模拟调制的课程实践与练习，加强学生对各模拟通信系统，调制方式的理解，并对接收机电路中非理想解调带来的影响有所认识。</p>
+        <p>(1)MATLAB Simulink有关数字传输的课程实践与练习，加强学生对数字基带传输，数字频带传输相关知识点的理解，包括信号功率谱，眼图，各种数字调制方式，星座</p>
+    </div>
+    <div>
+        <span>三、课程设计</span>
+        <p>本课程还安排两项课程设计（包括用四节课介绍相关硬件设备、课程设计的基本内容和要求，以及用两节课让学生进行成果展示与比拼）</p>
+        <p>(1)基于ADI Pluto软件无线电平台的商用FM电台接收机实现。</p>
+        <p>(2)基于ADI Pluto的收发数字传输系统的实现。
+        </p>
+    </div>
+    </div>
+{% endblock %}

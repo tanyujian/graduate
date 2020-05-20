@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}
+    课程页面
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static "css/course_video.min.css" %}">
+{% endblock %}
+
+{% block content %}
+     <div class="wrapper">
+            <ul class="course-list">
+                {% for foo in num.object_list %}
+                <li>
+                    <a href="{% url "video:video_detail" foo.id %}">
+                        <div class="thumbnail-group">
+                            <img src="{{ foo.cover.url }}" alt="" class="thumbnial">
+                        </div>
+                        <div class="course-info">
+                            <p class="title">{{ foo.title }}</p>
+                            <p class="author">{{ foo.teacher }}</p>
+                            <p class="price-group">
+                                {% if foo.price %}
+                                <span class="pay">{{ foo.price }}</span>
+                                {% else %}
+                                    <span>免费</span>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                {% endfor %}
+{##}
+{#                <li></li>#}
+{#                <li></li>#}
+            </ul>
+     <nav aria-label="Page navigation" class="page">
+                  <ul class="pagination">
+                    <li>
+                        {% if num.has_previous %}
+                      <a href="?page={{ num.previous_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+
+                      </a>
+                        {% endif %}
+                    </li>
+                  {% for page in blog_page %}
+                      {% if page == num.number %}
+                             <li class="active"><a  href="?page={{ page }}">{{ page }}</a></li>
+                      {% else %}
+                          <li><a class="" href="?page={{ page }}">{{ page }}</a></li>
+                      {% endif %}
+
+                  {% endfor %}
+                    <li>
+                        {% if num.has_next %}
+                      <a href="?page={{ num.next_page_number }}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                        {% endif %}
+                    </li>
+
+                  </ul>
+                </nav>
+        </div>
+{% endblock %}

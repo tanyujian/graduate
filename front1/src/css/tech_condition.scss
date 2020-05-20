@@ -1,0 +1,40 @@
+.sum{
+  width: 700px;
+  height: 700px;
+  margin: auto;
+  margin-top: 30px;
+  border: solid 1px black;
+      span{
+      margin: 10px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+  .jc{
+    width: 100%;
+    height: 90px;
+    border-bottom: solid 1px black;
+    p{margin: 10px}
+  }
+  .ckzl{
+    width: 100%;
+    height: 300px;
+    border-bottom: solid 1px black;
+     p{margin-left: 10px;}
+  }
+  .fzyj{
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    .title{
+      width: 100%;
+      height: 18px;
+    }
+    .iamge{
+      float: left;
+    }
+    .content{
+      float: right;
+    }
+  }
+}

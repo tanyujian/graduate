@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}
+    课程详情
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static "css/video_detail.min.css " %}">
+    <script src="{% static "videojs/video.min.js" %}"></script>
+    <script src="{% static "videojs/videojs-contrib-hls.min.js" %}"></script>
+    <script src="{% static "videojs/videojs-contrib-quality-levels.min.js" %}"></script>
+    <script type="text/javascript" src="https://cdn.bdstatic.com/jwplayer/latest/cyberplayer.js"></script>
+    <script src="{% static "js/template-web.js" %}"></script>
+    <script src="{% static "js/video_detail.min.js" %}"></script>
+    <script type="text/html" id="comment-model">
+        {% verbatim %}
+                <div class="comment-matter" id="comment-matter-{{ id }}">
+                <p>{{ user.username }}-{{pub_time }}</p>
+                <p class="c">{{ content }}</p>
+                 <p><a href="javascript:Comment.prototype.reply({{ id }})">回复</a></p>
+            </div>
+        {% endverbatim %}
+    </script>
+    <script type="text/html" id="reply-model">
+        {% verbatim %}
+            <div class="sub-comment">
+                    <p>{{ user.nickname }}回复{{ reply_user.nickname }}{{ pub_time }}</p>
+                    <p class="c">{{ content }}</p>
+                    <p><a href="javascript:Comment.prototype.reply({{ id }})">回复</a></p>
+            </div>
+         {% endverbatim %}
+
+    </script>
+{% endblock %}
+
+
+{% block content %}
+    <div class="video-main">
+        <div class="video-title">
+            <div class="title"> {{ content.title }}</div>
+            <div class="share">
+                <span class="share1">分享至:</span>
+                <span class="share2">
+                    {% if content.price %}
+                        {{ content.price }}
+                    {% else %}
+                        免费
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+{#        <div class="video" >#}
+{#            <video controls width="100%" height="700"  >#}
+{#                <source src="{{ content.video.url }}" type="video/mp4">#}
+{#            </video>#}
+{#        </div>#}
+{#    </div>#}
+     <div class="video-group" style="width: 100%;height: 700px">
+        <span id="video-info" hidden data-video-url="{{ content.video_url }}" data-video-cover="{{ content.cover_url }}"></span>
+        <div id="playercontainer"></div>
+    </div>
+    </div>
+    <div class="courseware">
+    <span>课件下载:</span>
+        <ol>
+            {% for foo in ware %}
+            <li><a href="http://127.0.0.1:8000/media/{{ foo.file }}" target="_blank">{{ foo.desc }}</a> &nbsp;&nbsp;<a href="{% url "tech_assist:load" foo.id %}">下载</a></li>
+            {% endfor %}
+        </ol>
+    <span class="btn btn-primary" id="work-file">上传作业</span>
+    </div>
+
+
+
+    <div class="comment">
+        <div class="class-comment">
+            <span>课程讨论</span>
+            </div>
+        <div>
+                <textarea object-id="{{ content.id }}" content-object="coursevideo" reply-id="0" name="" id="comment-content" rows="5"></textarea>
+                <button class="btn btn-primary pull-right" id="submit-btn">评论</button>
+        </div>
+        <hr>
+        <div class="comment-box">
+            {% for foo in comment %}
+            <div class="comment-matter" id="comment-matter-{{ foo.id }}">
+            <p>{{ foo.user.nickname }}-{{ foo.pub_time|date:"Y-m-d" }}</p>
+            <p class="c">{{ foo.content }}</p>
+            <p><a href="javascript:Comment.prototype.reply({{ foo.id }})">回复</a></p>
+            {% for sub in foo.comment_root.all %}
+                <div class="sub-comment">
+                    <p>{{ sub.user.nickname}}回复{{ sub.reply_user.nickname }}-{{ sub.pub_time|date:"Y-m-d" }}</p>
+                    <p class="c">{{ sub.content }}</p>
+                    <p><a href="javascript:Comment.prototype.reply({{ sub.id }})">回复</a></p>
+                </div>
+            {% endfor %}
+
+        </div>
+                {% empty %}
+                暂无评论
+            {% endfor %}
+    </div>
+    </div>
+
+    <div class="send-work">
+        <div>
+            <span>作业上传</span></div>
+        <form action="/assist/send-file/" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            <input type="file" class="form-control" name="file">
+            <input type="text" hidden value="{{ content.id }}" name="course">
+            <button class="btn btn-primary pull-left" id="send">上传</button>
+            <button class="btn btn-primary pull-right" id="cancel">取消</button>
+        </form>
+
+    </div>
+
+{% endblock %}

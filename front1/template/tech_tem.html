@@ -1,0 +1,46 @@
+{% extends "course_introduce.html" %}
+
+{% block title %}
+    课程团队
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static "css/course_introduce.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/tech_tem.min.css" %}">
+{% endblock %}
+
+{% block side-title %}
+    教学团队
+{% endblock %}
+{% block small-title %}
+    教学团队
+{% endblock %}
+
+{% block inner-content %}
+    <div class="tem-tips">
+        <span>教学队伍情况（点击教师姓名可查看其个人主页）</span>
+    </div>
+    <div class="teacher-table">
+        <table>
+            <thaead>
+                <tr>
+                    <td class="name">姓名</td>
+                    <td class="position">职称</td>
+                    <td class="work">在教学中承担的工作</td>
+                </tr>
+            </thaead>
+            <tbody>
+
+            {% for foo in teacher %}
+                 <tr>
+                    <td class="name">{{ foo.nickname }}</td>
+                    <td class="position">{{ foo.position }}</td>
+                    <td class="work">{{ foo.desc }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}

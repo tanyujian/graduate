@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}
+    首页
+{% endblock %}
+
+{% block head %}
+{#    <script src="{% static "js/video_detail.min.js" %}"></script>#}
+{% endblock %}
+
+
+{% block content %}
+    <div class="main">
+        <div class="right-main">
+            <div class="main-title">
+                <span>课程介绍</span>
+            </div>
+            <div class="main-content">
+                <div class="tav-image">
+                    <a href="">
+                <img src="http://fdjpkc.fudan.edu.cn/_upload/article/images/fe/fb/ef3739e84040adaeae2bedc21ee4/f52d3b29-2936-44f5-aedc-3a29138a3a12_s.png" alt="" >
+                </a>
+            </div>
+                <div class="introduce">
+                    <a href="">
+                    <span>
+                        &nbsp;&nbsp;《通信原理》是通信工程专业的标志性课程，主要面向通信工程及相关专业如电子类专业和计算机通信类专业本科生，讲授信息传输的基本概念、基础理论和典型技术。本课程的内容包括通信系统的组成与基本工作原理，信息论基础与概率数理统计基础，信道模型与特性，模拟调制与解调理论，模拟信号数字化理论，数字基带传输理论，数字频带传输理论，最佳接收机设计，先进数字通信技术等。基于学生在信号与系统课程中掌握的基础知识，通过教学使学生系统深入地掌握通信系统的基本概念，特别是数字和模拟系统的基本调制与解调的原理与方法。
+                    </span>
+                        </a>
+                </div>
+                </div>
+        </div>
+        <div class="left-main">
+            <div class="main-title">
+                <span class="information">通知公告</span>
+                <span class="more"><a href="">more>></a> </span>
+            </div>
+            <div class="main-content">
+                <ul class="circle">
+                    <li>教学视频上传完成</li>
+                    <li>教学课件上传完成</li>
+                    <li>已生成付费教学资料</li>
+                </ul>
+            </div>
+        </div>
+        <div class="b-group">
+            <div class="friend-link">
+                <div class="main-title1">
+                <span class="information1">友情连接</span>
+                <span class="more1"><a href="#">more>></a> </span>
+            </div>
+                <div class="study_link">
+                    <ol class="circle">
+
+                        <a href="https://www.ctolib.com/luojilab-django-mirage-field.html"><li>Django模型字段加密/解密您的数据，并加密保存至数据库中</li></a>
+                        <a href="https://docs.djangoproject.com/zh-hans/3.0/intro/overview/"><li>初始Django</li></a>
+                        <a href="https://docs.djangoproject.com/zh-hans/3.0/intro/reusable-apps/"><li>进阶指南如何编写程序</li></a>
+                        <a href="https://docs.djangoproject.com/zh-hans/3.0/"><li>django中文文档</li></a>
+
+                    </ol>
+                </div>
+            </div>
+            <div class="study-video">
+                <div class="main-title1">
+                <span class="information1">教学视频</span>
+                <span class="more1"><a href="">more>></a> </span>
+            </div>
+                 <div class="video" >
+                    <video controls width="100%" height="250px"  >
+                        <source src="{% static "image/falali.mp4" %}" type="video/mp4">
+                    </video>
+                 </div>
+                </div>
+            <div class="study-resource">
+                <div class="main-title1">
+                <span class="information1">教学资源</span>
+                <span class="more1"><a href="{% url "video:course_video" %}">more>></a> </span>
+            </div>
+                     <ol>
+                        {% for foo in course %}
+                            <li><a href="{% url "video:video_detail" foo.id %}">{{ foo.title }}</a></li>
+                        {% endfor %}
+                    </ol>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

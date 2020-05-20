@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+     <link rel="stylesheet" href="{% static "bootstrap-3.3.7-dist/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/base.min.css" %}">
+    <script src="{% static "js/jquery-3.3.1.min.js" %}"></script>
+    <script src="{% static "bootstrap-3.3.7-dist/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/user.min.js" %}"></script>
+    <script src="{% static "js/get_crsf.min.js" %}"></script>
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <div class="header-main">
+            <img src="http://www.guit.edu.cn/images/LOGO.png" alt="" height="119" width="598">
+        </div>
+        <div class="header-right">
+            <img src="http://www.guit.edu.cn/images/textimg.png" alt="" height="39" width="309">
+        </div>
+         <div class="operation">
+             <ul>
+                 <li>精品课程主站 &nbsp;</li>
+                 <li>Elearning学习平台 &nbsp;</li>
+                 {% if user.is_authenticated %}
+                    <li id="username"><a href="">{{ user.nickname }} &nbsp;</a>
+                        <div class="user-more-box" style="display: none">
+                            <i class="triangle"></i>
+                        {% if user.is_staff %}
+                            <a href="/admin/">管理系统</a>
+                        {% endif %}
+                         <a href="{% url "user:personal" %}">个人信息</a>
+                        <a href="{% url "user:logout" %}" class="log_out">退出登录</a>
+                        </div>
+                        </li>
+                 {% else %}
+                     <li><a href="{% url "user:login" %}">登陆&nbsp;</a></li>
+                     <li><a href="{% url "user:signup" %}">注册&nbsp;</a></li>
+                 {% endif %}
+             <li class="search-li"><span class="glyphicon glyphicon-search"></span>
+                <div class="search" style="">
+                    <form action="/search/">
+                        <input type="text" name="q" class="form-control" id="search">
+                        <button type="submit" class="btn btn-default">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </form></div>
+             </li>
+             </ul>
+         </div>
+            <div class="nav"> </div>
+    </header>
+    <div class="nav1">
+        <div class="inner_nav">
+            <ul>
+                <li><a href="/">首页</a></li>
+                <li><a href="{% url "video:course_introduce" %}">课程介绍</a></li>
+                <li><a href="{% url "user:tech_tem" %}">教学团队</a></li>
+                <li><a href="{% url "tech_assist:conditions" %}">教学条件</a></li>
+                <li><a href="{% url "tech_assist:outline" %}">教学方法</a></li>
+                <li><a href="{% url "video:course_video" %}">教学视频</a></li>
+                <li><a href="">教学评价</a></li>
+            </ul>
+        </div>
+    </div>
+    {% block content %}
+    {% endblock %}
+    <footer>
+        <div>
+        <span>版权归&copy;所有，如有疑问联系132456789</span>
+            </div>
+    </footer>
+</body>
+</html>

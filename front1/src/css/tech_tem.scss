@@ -1,0 +1,23 @@
+.tem-tips{
+  width: 500px;
+  height: 80px;
+  margin: auto;
+  margin-top: 20px;
+  span{
+    font-weight: bold;
+  }
+}
+.teacher-table{
+  width: 600px;
+  margin: auto;
+  table{
+    border:solid 1px black;
+    width: 600px;
+    td{
+      border:solid 1px black;
+      height: 35px;
+      line-height: 35px;
+    }
+  }
+
+}
